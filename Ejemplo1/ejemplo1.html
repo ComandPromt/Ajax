@@ -1,0 +1,31 @@
+<!-- ejemplo1.html -->
+<html>
+<head>
+<script>
+function showHint(str) {
+    if (str.length == 0) {
+        document.getElementById("txtSugerencia").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Respuesta recibida");
+                document.getElementById("txtSugerencia").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "ejemplo1.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>
+</head>
+<body>
+
+<p><b>Empiece a escribir un nombre:</b></p>
+<form>
+Nombre: <input type="text" onkeyup="showHint(this.value)">
+</form>
+<p>Sugerencias: <span id="txtSugerencia"></span></p>
+</body>
+</html> 
