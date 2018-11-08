@@ -1,0 +1,40 @@
+<!-- ejemplo3.html -->
+<html>
+<head>
+    <meta charset="utf8" />
+<script>
+function comprobar(str, dato) {
+    if (str.length == 0) {
+        document.getElementById("error").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if (this.responseText != "OK") {
+                    document.getElementById("error"+dato).innerHTML = this.responseText;
+                } else {
+                    document.getElementById("error"+dato).innerHTML = "";
+                }
+            }
+        };
+        xmlhttp.open("GET", "ejemplo3_solucion.php?dato="+dato+"&valor=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>
+<style>
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<form>
+Correo: <input type="email" onkeyup="comprobar(this.value, 'email')"> <span class="error" id="erroremail"></span><br/><br/>
+Usuario: <input type="text" onkeyup="comprobar(this.value, 'usuario')"> <span class="error" id="errorusuario"></span>
+</form>
+</body>
+</html> 
