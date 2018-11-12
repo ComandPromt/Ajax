@@ -1,0 +1,31 @@
+<!-- Ejemplo5.html -->
+<html>
+
+<head>
+    <meta charset="utf8" />
+    <script src="ejemplo5.js"></script>
+</head>
+
+<body>
+
+    <form>
+Seleccione un usuario:
+        <select name="users" onchange="mostrarUsuario(this.value)">
+            <option value="">Seleccione...</option>
+            <option value="1">Peter Griffin</option>
+            <option value="2">Lois Griffin</option>
+            <option value="3">Glenn Quagmire</option>
+            <option value="4">Joseph Swanson</option>
+        </select>
+    </form>
+
+    <h2><span id="spnNombre"></span> <span id="spnApellido"></span></h2>
+    <span id="spnTrabajo"></span>
+    <div style="text-align: right">
+        <span id="spnEdad"></span>
+        <span id="spnCiudad"></span>
+    </div>
+
+</body>
+
+</html>
