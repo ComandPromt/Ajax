@@ -32,8 +32,9 @@ function comprobar(str, dato) {
 </head>
 <body>
 
+<p><b>Escriba un correo electrónico:</b></p>
 <form>
-Correo: <input type="email" onkeyup="comprobar(this.value, 'email')"> <span class="error" id="erroremail"></span><br/><br/>
+Correo: <input type="text" onkeyup="comprobar(this.value, 'email')"> <span class="error" id="erroremail"></span><br />
 Usuario: <input type="text" onkeyup="comprobar(this.value, 'usuario')"> <span class="error" id="errorusuario"></span>
 </form>
 </body>
